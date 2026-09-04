@@ -9,10 +9,10 @@ function getComputerChoice (){
         return ("scissors");
     }
 }
-(getComputerChoice());
 
-let choice = prompt("please enter rock, paper or scissors","");
+
 function getHumanChoice (){
+    let choice = prompt("please enter rock, paper or scissors","");
     
     if (choice==="rock"){
         return "rock";
@@ -22,40 +22,32 @@ function getHumanChoice (){
         return "scissors";
     }
 }
-console.log(getHumanChoice());
 
 
-let humanScore=0;
-let computerScore=0;
-
-function playGame(){   
+function playGame(){
+    let humanScore=0;
+    let computerScore=0;
+  
+ 
     function PlayRound (humanChoice,computerChoice){
        humanChoice=humanChoice.toLowerCase();
        if ((humanChoice==="rock"&&computerChoice==="paper")||(humanChoice==="paper"&&computerChoice==="scissors")||(humanChoice==="scissors"&&computerChoice==="rock")){
+        computerScore = computerScore + 1;
         return "you lose!"+" "+computerChoice+" "+"beats"+" "+humanChoice ;
+        
     }else if (humanChoice===computerChoice){
         return "It's a tie! you both chose " + " " +humanChoice ;
-    }else{
+    }else{ 
+        humanScore = humanScore + 1;
         return "you won!"+" "+humanChoice+" "+"beats"+" "+computerChoice ;
     }
     
 }
-console.log (PlayRound ( getHumanChoice(), getComputerChoice()));  
+
+for (let i=0; i<5 ; i++){
+    console.log(`Round ${i+1}`);
+    console.log(PlayRound(getHumanChoice(), getComputerChoice()));
+    console.log ("Current score"+":"+" "+"you"+" "+"==>"+humanScore+" " ,"computer"+" "+"==>"+ computerScore) ;
+} 
 }
-playGame(1);
-playGame(2);
-playGame(3);
-playGame(4);
-playGame(5);
-
-
-function score (humanChoice,computerChoice){
-    if (((humanChoice==="rock"&&computerChoice==="paper")||(humanChoice==="paper"&&computerChoice==="scissors")||(humanChoice==="scissors"&&computerChoice==="rock"))){
-        return humanScore++;
-    }else if (((computerChoice==="rock"&&humanChoice==="paper")||(computerChoice==="paper"&&humanChoice==="scissors")||(computerChoice==="scissors"&&humanChoice==="rock"))){
-        return computerScore++;
-    }else{
-        return 
-    } 
-}   
-console.log(score()) ;
+playGame();
