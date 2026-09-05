@@ -49,5 +49,16 @@ for (let i=0; i<5 ; i++){
     console.log(PlayRound(getHumanChoice(), getComputerChoice()));
     console.log ("Current score"+":"+" "+"you"+" "+"==>"+humanScore+" " ,"computer"+" "+"==>"+ computerScore) ;
 } 
+
+    function score (human,computer){
+        if (human > computer){
+            return "Congratulation ! YOU won the game ";
+        }else if (computer > human){
+            return "YOU lose ! computer wone the game";
+        }else {
+            return "IT'S A TIE ! wanna play again ?";
+        }
+    }
+    console.log(score(humanScore,computerScore));
 }
 playGame();
